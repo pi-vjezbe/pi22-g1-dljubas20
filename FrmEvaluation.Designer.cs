@@ -103,6 +103,7 @@
             // 
             this.txtTeacher.Location = new System.Drawing.Point(437, 336);
             this.txtTeacher.Name = "txtTeacher";
+            this.txtTeacher.ReadOnly = true;
             this.txtTeacher.Size = new System.Drawing.Size(100, 20);
             this.txtTeacher.TabIndex = 7;
             // 
@@ -160,6 +161,7 @@
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Spremi";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 

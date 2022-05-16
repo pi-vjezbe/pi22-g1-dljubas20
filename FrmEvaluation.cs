@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,6 +49,33 @@ namespace Evaluation_Manager
 			numPoints.Minimum = 0;
 			numPoints.Maximum = currentActivity.MaxPoints;
 
+			var evaluation = EvaluationRepository.GetEvaluation(odabraniStudent, currentActivity);
+			if(evaluation != null)
+            {
+				txtTeacher.Text = evaluation.Evaluator.ToString();
+				txtEvaluatioDate.Text = evaluation.EvaluationDate.ToString();
+				numPoints.Value = evaluation.Points;
+            }
+            else
+            {
+				txtTeacher.Text = FrmLogin.LoggedTeacher.ToString();
+				txtEvaluatioDate.Text = DateTime.Now.ToString("dd.MM.yyyy");
+				numPoints.Value = 0;
+			}
 		}
-	}
+
+        private void btnSave_Click(object sender, EventArgs e)
+		{
+			var currentActivity = cboActivities.SelectedItem as Activity;
+			var evaluation = EvaluationRepository.GetEvaluation(odabraniStudent, currentActivity);
+			if(evaluation != null)
+            {
+				EvaluationRepository.UpdateEvaluation(evaluation, FrmLogin.LoggedTeacher, (int)numPoints.Value);
+			}
+            else
+            {
+				EvaluationRepository.InsertEvaluation(odabraniStudent, currentActivity, FrmLogin.LoggedTeacher, (int)numPoints.Value);
+            }
+		}
+    }
 }
