@@ -78,6 +78,7 @@
     <Compile Include="Repositories\ActivityRepository.cs" />
     <Compile Include="Repositories\EvaluationRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
+    <Compile Include="Repositories\TeacherRepository.cs" />
     <EmbeddedResource Include="FrmEvaluation.resx">
       <DependentUpon>FrmEvaluation.cs</DependentUpon>
     </EmbeddedResource>
