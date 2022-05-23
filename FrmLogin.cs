@@ -18,7 +18,6 @@ namespace Evaluation_Manager
 
         public FrmLogin()
         {
-            LoggedTeacher = null;
             InitializeComponent();
         }
 
@@ -35,7 +34,9 @@ namespace Evaluation_Manager
             else
             {
                 LoggedTeacher = TeacherRepository.GetTeacher(txtUsername.Text);
+
                 if (LoggedTeacher != null && LoggedTeacher.Password == txtPassword.Text)
+
                 {
                     FrmStudents frmStudents = new FrmStudents();
                     Hide();
@@ -44,7 +45,6 @@ namespace Evaluation_Manager
                 }
                 else
                 {
-                    LoggedTeacher = null;
                     MessageBox.Show("Krivi podaci!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

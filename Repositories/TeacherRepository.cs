@@ -17,6 +17,7 @@ namespace Evaluation_Manager.Repositories
             return FetchTeacher(sql);
         }
 
+
         public static Teacher GetTeacher(int id)
         {
             string sql = $"SELECT * FROM Teachers WHERE Id = {id}";
@@ -58,5 +59,6 @@ namespace Evaluation_Manager.Repositories
             };
             return teacher;
         }
+
     }
 }

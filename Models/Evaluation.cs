@@ -1,5 +1,4 @@
-﻿using Evaluation_Manager.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,10 +23,6 @@ namespace Evaluation_Manager.Models
         {
             return Points >= Activity.MinPointsForSignature;
         }
-
-        public void UpdateEvaluation(int points)
-        {
-            EvaluationRepository.UpdateEvaluation(this, FrmLogin.LoggedTeacher, points);
-        }
     }
+
 }
